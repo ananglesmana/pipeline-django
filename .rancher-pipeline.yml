@@ -4,7 +4,7 @@ stages:
   - runScriptConfig:
       image: python:3
       shellScript: |-
-        apt-get update    
+        
 - name: Publish
   steps:
   - publishImageConfig:
