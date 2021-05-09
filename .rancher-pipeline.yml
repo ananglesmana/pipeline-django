@@ -2,9 +2,9 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: django:latest
+      image: php:7.4-apache
       shellScript: |-
-         
+        apt-get update    
 - name: Publish
   steps:
   - publishImageConfig:
