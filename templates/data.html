@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+ 
+
+{% for post in Post %}
+    
+
+<br>
+
+ <h1>Data Mahasiswa</h1>
+
+ <table class="table">
+  <thead>
+    <tr align="center">
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Asal Kota</th>
+      <th scope="col" colspan="2">Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr align="center">
+        <td>1</td> 
+        <td>{{post.nama}}</td>  
+        <td>{{post.alamat}}</td> 
+        <td><a href="">Ubah</a></td>
+        <td><a href="">Hapus</a></td>
+    </tr>
+       
+  </tbody>
+</table>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
