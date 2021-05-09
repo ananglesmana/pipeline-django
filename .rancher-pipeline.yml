@@ -1,0 +1,17 @@
+stages:
+- name: Build
+  steps:
+  - runScriptConfig:
+      image: python:3
+      shellScript: |-
+        apt-get update    
+- name: Publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: example-php:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
