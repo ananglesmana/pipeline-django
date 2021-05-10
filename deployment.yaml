@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-django
+spec:
+  selector:
+    matchLabels:
+      app: test-django
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-django
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: test-django
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 8000
+      restartPolicy: Always
+     
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-django
+  labels:
+    app: test-django
+spec:
+  type: NodePort
+  ports:
+  - port: 8000
+    nodePort: 30018
+  selector:
+    app: test-django
+
