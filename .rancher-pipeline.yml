@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: python:3
+      image: ubuntu:latest
       shellScript: |-
         
 - name: Publish
