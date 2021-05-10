@@ -2,9 +2,9 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: ubuntu:latest
+      image: php:apache
       shellScript: |-
-        
+        apt-get update    
 - name: Publish
   steps:
   - publishImageConfig:
